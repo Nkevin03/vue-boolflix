@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header @startSearching="performSearch"/>
+    <Header @Searching="Search"/>
 		<Main id="Body" :movies="movies"/>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
 		};
 	},
 	methods: {
-		performSearch(title) {
+		Search(title) {
 			axios.get('https://api.themoviedb.org/3/search/movie?', {
 				params: {
 					api_key: 'f137419f4e1c495ea896066f72846878',

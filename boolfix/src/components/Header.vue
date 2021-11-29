@@ -1,7 +1,7 @@
 <template>
   <header>
-      <input type="text" v-model="watch" @keyup.enter="$emit('startSearching', watch), ClearBar()">
-      <button @click="$emit('startSearching', watch), ClearBar()">Search</button>
+      <input type="text" v-model="watch" @keyup.enter="$emit('Searching', watch), ClearBar()">
+      <button @click="$emit('Searching', watch), ClearBar()">Search</button>
   </header>
 </template>
 
