@@ -33,12 +33,6 @@ export default {
     components: {
         Card,
     },
-    
-    data() {
-		return {
-			languageimg: ['it', 'en'],
-		};
-	},
 }
 </script>
 
