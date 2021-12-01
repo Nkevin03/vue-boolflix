@@ -1,9 +1,18 @@
 <template>
   <header class="d-flex justify-content-between align-items-center">
-      <h1>BOOLFIX</h1>
+     <div class="nav-left">
+        <h1>BOOLFIX</h1>
+        <ul>
+            <li><a href="#"><b>Home</b></a></li>
+            <li><a href="#">Serie TV</a></li>
+            <li><a href="#">Film</a></li>
+            <li><a href="#">Nuovi e popolari</a></li>
+            <li><a href="#">La mia lista</a></li>
+        </ul>
+     </div>
      <div class="search-bar">
           <input type="text" v-model="watch" @keyup.enter="$emit('Searching', watch), ClearBar()" placeholder="Cerca Film o Serie">
-         <button @click="$emit('Searching', watch), ClearBar()">Cerca</button>
+         <i class="fas fa-search" @click="$emit('Searching', watch), ClearBar()"></i>
      </div>
   </header>
 </template>
@@ -30,8 +39,29 @@ export default {
         background-color: #000;
         padding: 10px;
 
+        .nav-left{
+            display: flex;
+
+            ul{
+                display: flex;
+                align-items: center;
+                list-style: none;
+                margin-bottom: 0;
+
+                li{
+                    padding: 0 10px;
+                }
+
+                a{
+                text-decoration: none;
+                color: #fff;
+                }
+            }
+        }
+
         h1{
             color: #e50914;
+            margin-bottom: 0;
         }
 
 
@@ -48,15 +78,10 @@ export default {
            transition: 0.5s;
 
         }
-        button{
-            background-color: #e50914;
-            outline: none;
-            border: 0;
-            margin: 0 10px;
+        .search-bar i{
             color: #fff;
-            height: 31px;
-            width: 85px;
-            border-radius: 25px;
+            font-size: 20px;
+            cursor: pointer;
         }
     }
 </style>

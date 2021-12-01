@@ -10,20 +10,24 @@
         </div>
         <div class="hover-info">
             <div>
-                {{ title }}
+                <b>Titolo</b>: {{ title }}
             </div>
             <div>
-                {{ subTitle }}
+                <b>Sottotitolo</b>: {{ subTitle }}
             </div>
             <div class="language">
+                <b>Lingua:</b>
                 <img v-if="getFlags" :src="require(`@/assets/${text}.png`)">
                 <span v-else> {{ text }}</span>
             </div>
 
-            <div>
-               <i v-for="(number, i) in VoteStars" :key="`vote-${i}`" class="fas fa-star"></i>
+            <div class="vote">
+                <h3>Voto:</h3>
+               <span>
+                   <i v-for="(number, i) in VoteStars" :key="`vote-${i}`" class="fas fa-star"></i>
 
-               <i v-for="(number, i) in 5 - VoteStars" :key="`vote-2-${i}`" class="far fa-star"></i>
+                    <i v-for="(number, i) in 5 - VoteStars" :key="`vote-2-${i}`" class="far fa-star"></i>
+               </span>
             </div>
         </div>
   </section>
@@ -59,7 +63,11 @@ export default {
     .not-found-image img{
         width: 185px;
     }
-    .language img{
+    .language b{
+        padding: 0 10px;
+    }
+    
+    img{
         width: 30px;
     }
 
@@ -100,5 +108,17 @@ export default {
         
         div{
             padding-bottom: 10px;
+        }
+
+        .vote{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            h3{
+                font-size: 18px;
+                margin-bottom: 0;
+                padding: 0 5px;
+            }
         }
 </style>
