@@ -1,6 +1,6 @@
 <template>
-  <div>
-		<ul v-for="movie in movies" :key="`${movie.title}`">
+  <div class="content d-flex flex-wrap">
+		<div class="card" v-for="movie in movies" :key="`${movie.title}`">
 			<Card 
                   :image="movie.backdrop_path"
                   :title="movie.title"
@@ -8,9 +8,9 @@
                   :text="movie.original_language"
                   :number="movie.vote_average"
               />
-		</ul>
+		</div>
 
-        <ul v-for="serie in series" :key="`${serie.title}`">
+        <div class="card" v-for="serie in series" :key="`${serie.title}`">
 			<Card 
                 :image="serie.backdrop_path"
                 :title="serie.name"
@@ -18,7 +18,7 @@
                 :text="serie.original_language"
                 :number="serie.vote_average"
             />
-		</ul>
+		</div>
 	</div>
 </template>
 
@@ -37,7 +37,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    img{
-        width: 30px;
+    .content{
+        background-color: #141414;
+    }
+    .card{
+        position: relative;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        width: calc(100% / 6);
+        margin: 30px;
+        border-radius: 10px;
     }
 </style>
