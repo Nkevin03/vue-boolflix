@@ -13,6 +13,12 @@
      <div class="search-bar">
           <input type="text" v-model="watch" @keyup.enter="$emit('Searching', watch), ClearBar()" placeholder="Cerca Film o Serie">
          <i class="fas fa-search" @click="$emit('Searching', watch), ClearBar()"></i>
+          <ul>
+             <li><a href="#">Bambini</a></li>
+              <i class="fas fa-bell notification"></i>
+              <img src="@/assets/profilo.jpg">
+              <i class="fas fa-sort-down arrow"></i>
+         </ul>
      </div>
   </header>
 </template>
@@ -78,10 +84,43 @@ export default {
            transition: 0.5s;
 
         }
-        .search-bar i{
-            color: #fff;
-            font-size: 20px;
-            cursor: pointer;
+        .search-bar{
+            display: flex;
+            align-items: center;
+
+            ul{
+                display: flex;
+                align-items: center;
+                margin-bottom: 0;
+                list-style: none;
+                margin-left: 1rem;
+
+                a{
+                    text-decoration: none;
+                    color: #fff;
+                }
+
+                img{
+                    width: 40px;
+                }
+            }
+
+            i {
+                color: #fff;
+                font-size: 20px;
+                cursor: pointer;
+
+                &:focus input{
+                    background: #e50914;
+                }
+            }   
+            .notification{
+                padding: 0 20px;
+            }
+            .arrow{
+                font-size: 14px;
+                padding: 0 15px;
+            }
         }
     }
 </style>
